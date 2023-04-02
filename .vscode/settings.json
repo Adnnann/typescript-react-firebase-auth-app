@@ -1,0 +1,8 @@
+{
+  "git.ignoreLimitWarning": true,
+  "cSpell.words": [
+    "firestore",
+    "moongose"
+  ],
+  "prettier.semi": true,
+}
