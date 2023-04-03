@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import User from "../models/user.model";
 import errorHandler from "./helpers/errorHandler";
-import jwt from "jsonwebtoken";
 
 export interface UserRequest extends Request {
   user: {
@@ -24,7 +23,6 @@ const registerUser = async (req: Request, res: Response) => {
 const loginUser = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-
     const user = await User.findOne({ email, password });
 
     if (!user) {
@@ -40,7 +38,6 @@ const loginUser = async (req: Request, res: Response) => {
     const token = await user.generateAuthToken(user);
     res.status(200).json({ user, token });
   } catch (error: any) {
-    console.log("error", error);
     res.status(400).json({ error: errorHandler.getErrorMessage(error) });
   }
 };
