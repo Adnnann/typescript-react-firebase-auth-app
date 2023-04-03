@@ -1,1 +1,1 @@
-# Auth app with Typescript and React
+# Auth app with Typescript, Firebase and React
